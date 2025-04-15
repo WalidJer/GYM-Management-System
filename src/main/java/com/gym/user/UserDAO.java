@@ -165,7 +165,7 @@ public class UserDAO {
                 return false; 
             }
     
-            // Proceed to delete
+           
             try (PreparedStatement deleteStmt = con.prepareStatement(deleteUserQuery)) {
                 deleteStmt.setInt(1, userId);
                 int rows = deleteStmt.executeUpdate();

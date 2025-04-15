@@ -1,5 +1,4 @@
 package com.gym.memberships;
-
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
@@ -102,7 +101,6 @@ public class MembershipService {
      * for Admins.
      */
 
-
     public void viewTotalRevenue() {
         double total = membershipDAO.getTotalRevenue();
         System.out.println("\n╔═════════════════════════════════════════╗");
@@ -120,9 +118,17 @@ public class MembershipService {
     public void viewTotalExpenses(int memberID) {
         double total = membershipDAO.getTotalExpensesByMember(memberID);
         System.out.println("\n╔═════════════════════════════════════════╗");
-        System.out.printf ("║ Your Total Membership Expenses: $%.2f ║%n", total);
+        System.out.printf ("║ Your Total Membership Expenses: $%.2f  ║%n", total);
         System.out.println("╚═════════════════════════════════════════╝");
     }
+
+    /**
+     * Prints a formatted receipt to the console after a membership purchase.
+     *
+     * @param membership the Membership object containing type, description, and cost
+     * @param username   the username of the member who purchased the membership
+     */
+    
 
     public static class ConsoleFormatter {
 
@@ -140,6 +146,14 @@ public class MembershipService {
             System.out.println("╚══════════════════════════════════════════════╝");
         }
     }
+
+    /**
+     * Deletes all membership records associated with a specific user (member or trainer).
+     *
+     * @param memberId the ID of the user whose memberships should be deleted
+     * @return {@code true} if one or more memberships were successfully deleted,
+     *         {@code false} otherwise
+     */
 
     public boolean deleteMembershipsForUser(int memberId) {
         return membershipDAO.deleteMembershipsByMemberId(memberId);

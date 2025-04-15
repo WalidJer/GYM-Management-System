@@ -124,6 +124,14 @@ public class WorkoutClassService {
         workoutClassDAO.deleteWorkoutClass(workoutID, trainerID);
     }
 
+    /**
+     * Calls the DAO to delete all workout classes associated with a given trainer.
+     *
+     * @param trainerId the ID of the trainer whose classes are to be removed
+     * @return {@code true} if the deletion was successful or no classes existed,
+     *         {@code false} if an error occurred during deletion
+     */
+
 
     public boolean deleteWorkoutClassesByTrainer(int trainerId) {
         return workoutClassDAO.deleteWorkoutClassesByTrainer(trainerId);
