@@ -167,6 +167,14 @@ public class WorkoutClassDAO {
     }
 
 
+    /**
+     * Deletes all workout classes created by a specific trainer.
+     *
+     * @param trainerId the ID of the trainer whose workout classes should be deleted
+     * @return {@code true} if the deletion operation executed (even if no rows were affected),
+     *         {@code false} if an SQL exception occurred
+     */
+    
     public boolean deleteWorkoutClassesByTrainer(int trainerId) {
         String query = "DELETE FROM workout_classes WHERE trainer_id = ?";
         try (Connection con = DBConnection.getConnection();

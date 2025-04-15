@@ -164,6 +164,14 @@ public class MembershipDAO {
         return total;
     }
 
+    /**
+     * Deletes all membership records associated with a specific member ID.
+     *
+     * @param memberId the ID of the member whose memberships are to be deleted
+     * @return {@code true} if one or more memberships were deleted successfully,
+     *         {@code false} if no records were deleted or an error occurred
+     */
+
     public boolean deleteMembershipsByMemberId(int memberId) {
         String query = "DELETE FROM memberships WHERE member_id = ?";
         try (Connection con = DBConnection.getConnection();
